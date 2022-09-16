@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap');
+
+:root {
+    --left-bg-color: rgba(42, 116, 165, 0.5);
+    --right-bg-color: rgba(94, 94, 94, 0.5);
+    --left-btn-hover-color: rgba(42, 116, 165, 1);
+    --right-btn-hover-color: rgba(94, 94, 94, 1);
+    --hover-width: 70%;
+    --other-width: 30%;
+    --speed: 750ms;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+}
+
+.split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.split.left {
+    left: 0;
+    background: url('starfox.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.split.left .btn:hover {
+    background-color: var(--left-btn-hover-color);
+    border-color: var(--left-btn-hover-color);
+}
+
+.split.right {
+    right: 0;
+    background: url('parkouredge.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.split.right .btn:hover {
+    background-color: var(--right-btn-hover-color);
+    border-color: var(--right-btn-hover-color);
+}
+
+.split.left::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--left-bg-color);
+}
+
+.split.right::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--right-bg-color);
+}
+
+h1 {
+    font-size: 5rem;
+    color:bisque;
+    position: absolute;
+    align-items: center;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+h3 {
+    font-size: 1.3rem;
+    font-style: italic;
+    color:yellow;
+    position: absolute;
+    left: 30%;
+    align-items: center;
+    top: 60%;
+}
+
+.btn {
+    position: absolute;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    top: 40%;
+    text-decoration: wavy;
+    transform: translateX(-50%);
+    color: #fff;
+    border: bisque solid 0.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 15rem;
+    padding: 1.5rem;
+}
+
+.hover-left .left {
+    width: var(--hover-width);
+}
+
+.hover-left .right {
+    width: var(--other-width);
+}
+
+.hover-right .right {
+    width: var(--hover-width);
+}
+
+.hover-right .left {
+    width: var(--other-width);
+}
+
+.split.right, .split.left, .split.right::before, .split.left::before {
+    transition: all var(--speed) ease-in-out;
+}
+
+@media(max-width: 800px) {
+    h1 {
+        font-size: 2rem;
+        top: 30%;
+    }
+
+    .btn {
+        width: 12rem;
+        padding: 1.2rem;
+    }
+}
